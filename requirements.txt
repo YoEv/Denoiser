@@ -1,0 +1,9 @@
+hydra_core
+hydra_colorlog
+julius
+numpy
+pystoi
+git+https://github.com/ludlows/python-pesq#egg=pesq
+six
+sounddevice
+

@@ -1,0 +1,29 @@
+[2023-12-06 13:16:14,442][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-06 13:16:18,952][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 96, in run
+    solver = Solver(data, model, optimizer, args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 69, in __init__
+    factor_mag=args.stft_mag_factor).to(self.device)
+                                     ^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1160, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 810, in _apply
+    module._apply(fn)
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 810, in _apply
+    module._apply(fn)
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 857, in _apply
+    self._buffers[key] = fn(buf)
+                         ^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1158, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/cuda/__init__.py", line 289, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled

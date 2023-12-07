@@ -1,0 +1,20 @@
+[2023-12-06 16:37:04,548][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-06 16:37:07,019][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 41, in run
+    model = ConvTasNet(sources={'clean': clean_files, 'noisy': noise_files}, N=128, L=20, B=128, H=512, P=3, X=8, R=4,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 50, in __init__
+    self.separator = TemporalConvNet(N, B, H, P, X, R)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 82, in __init__
+    layers += [TemporalBlock(N, H, P, kernel_size, dilation)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 93, in __init__
+    self.conv1 = nn.Conv1d(input, weight, bias=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Conv1d.__init__() missing 1 required positional argument: 'kernel_size'

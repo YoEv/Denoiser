@@ -1,0 +1,66 @@
+[2023-12-06 14:37:12,566][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-06 14:37:17,310][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-06 14:37:17,310][denoiser.solver][INFO] - Training...
+[2023-12-06 14:37:21,220][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 97, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 140, in train
+    train_loss = self._run_one_epoch(epoch)  #################
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 210, in _run_one_epoch
+    estimate = self.dmodel(noisy) ########################
+               ^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 66, in forward
+    separated_frames = self.separator(encoded_frames)  #############
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 84, in forward
+    return self.network(x)
+           ^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 98, in forward
+    x = F.relu(self.layer_norm(self.conv1(x.transpose(1, 2)).transpose(1, 2))) #######
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 310, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 306, in _conv_forward
+    return F.conv1d(input, weight, bias, self.stride,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Given groups=1, weight of size [512, 128, 3], expected input[20, 34397, 128] to have 128 channels, but got 34397 channels instead

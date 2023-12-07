@@ -1,0 +1,66 @@
+[2023-12-06 13:36:28,418][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-06 13:36:33,759][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-06 13:36:33,759][denoiser.solver][INFO] - Training...
+[2023-12-06 13:36:41,533][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 97, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 140, in train
+    train_loss = self._run_one_epoch(epoch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 210, in _run_one_epoch
+    estimate = self.dmodel(noisy)
+               ^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 51, in forward
+    separated_frames = self.separator(encoded_frames)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 69, in forward
+    return self.network(x)
+           ^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 83, in forward
+    x = F.relu(self.layer_norm(self.conv1(x)))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/normalization.py", line 196, in forward
+    return F.layer_norm(
+           ^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/functional.py", line 2543, in layer_norm
+    return torch.layer_norm(input, normalized_shape, weight, bias, eps, torch.backends.cudnn.enabled)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Given normalized_shape=[512], expected input with shape [*, 512], but got input of size[20, 512, 34397]

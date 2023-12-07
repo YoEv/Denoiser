@@ -1,0 +1,11 @@
+[2023-12-06 13:15:01,027][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-06 13:15:14,062][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 37, in run
+    clean_files = [os.path.join(clean_folder, file) for file in os.listdir(clean_folder) if file.endswith('.wav')]
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/heisnproph11/pyProject/denoiser/train/clean'
