@@ -12,6 +12,7 @@ import math
 import os
 import sys
 
+import torch
 import torchaudio
 from torch.nn import functional as F
 
@@ -22,6 +23,8 @@ Info = namedtuple("Info", ["length", "sample_rate", "channels"])
 
 def get_info(path):
     info = torchaudio.info(path)
+    if hasattr(info, 'num_frames') and info.num_frames == 0:
+        info.num_frames = -1
     if hasattr(info, 'num_frames'):
         # new version of torchaudio
         return Info(info.num_frames, info.sample_rate, info.num_channels)
@@ -86,29 +89,31 @@ class Audioset:
             if self.length is not None:
                 offset = self.stride * index
                 num_frames = self.length
-            if torchaudio.get_audio_backend() in ['soundfile', 'sox_io']:
-                out, sr = torchaudio.load(str(file),
-                                          frame_offset=offset,
-                                          num_frames=num_frames or -1)
-            else:
-                out, sr = torchaudio.load(str(file), num_frames=num_frames)
-            target_sr = self.sample_rate or sr
-            target_channels = self.channels or out.shape[0]
-            if self.convert:
-                out = convert_audio(out, sr, target_sr, target_channels)
-            else:
-                if sr != target_sr:
-                    raise RuntimeError(f"Expected {file} to have sample rate of "
-                                       f"{target_sr}, but got {sr}")
-                if out.shape[0] != target_channels:
-                    raise RuntimeError(f"Expected {file} to have sample rate of "
-                                       f"{target_channels}, but got {sr}")
-            if num_frames:
-                out = F.pad(out, (0, num_frames - out.shape[-1]))
-            if self.with_path:
-                return out, file
-            else:
-                return out
+                if num_frames == 0:
+                    num_frames = -1
+            try:
+                out, sr = torchaudio.load(str(file), frame_offset=offset,num_frames=num_frames or -1)
+                target_sr = self.sample_rate or sr
+                target_channels = self.channels or out.shape[0]
+                if self.convert:
+                    out = convert_audio(out, sr, target_sr, target_channels)
+                else:
+                    if sr != target_sr:
+                        raise RuntimeError(f"Expected {file} to have sample rate of "
+                                            f"{target_sr}, but got {sr}")
+                    if out.shape[0] != target_channels:
+                        raise RuntimeError(f"Expected {file} to have sample rate of "
+                                            f"{target_channels}, but got {sr}")
+                if num_frames:
+                    out = F.pad(out, (0, num_frames - out.shape[-1]))
+                if self.with_path:
+                    return out, file
+                else:
+                    return out
+            except Exception as e:
+                print(f"Error processing file {file}: {e}")
+                return torch.zeros((1,1)) ####### adjust shape
+
 
 
 if __name__ == "__main__":

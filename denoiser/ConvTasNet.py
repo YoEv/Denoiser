@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import librosa
-from .utils1 import capture_init
+from .utils import capture_init
 
 EPS = 1e-8
 
@@ -48,7 +48,8 @@ class ConvTasNet(nn.Module):
                  causal=False,
                  mask_nonlinear='relu',
                  samplerate=44100,
-                 segment_length=44100 * 2 * 4):
+                 segment_length=44100 * 2 * 4,
+                 ):
         """
         Args:
             sources: list of sources

@@ -54,7 +54,7 @@ class ConvTasNet(nn.Module):
 
     def forward(self, x):
         frames = librosa.util.frame(x.cpu().numpy(), frame_length=self.frame_length, hop_length=self.frame_step)
-        frames = torch.from_numpy(frames).float()
+        frames = torch.from_numpy(frames.copy()).float()
 
         # 计算希望的张量大小
         desired_size = (20, 1, -1)
@@ -86,25 +86,7 @@ class TemporalConvNet(nn.Module):
         return self.network(x)
 
 class TemporalBlock(nn.Module):
-    def __init__(self, in_channels=128, out_channels=128, kernel_size=3, dilation=1, padding=0, dropout=0.2):
-        super(TemporalBlock, self).__init__()
-        self.conv1 = nn.Conv1d(in_channels, out_channels, kernel_size, padding=dilation, dilation=dilation)
-        self.conv2 = nn.Conv1d(out_channels, out_channels, kernel_size, padding=dilation, dilation=dilation)
-        self.dropout = nn.Dropout(dropout)
-        self.layer_norm = nn.LayerNorm([20, 128, 34397])  # 注意：LayerNorm的参数需要和输入张量的形状相匹配
-    
-    def forward(self, x):
-        residual = x
-        x = F.relu(self.layer_norm(x))  # 问题可能出现在这里，需要进一步检查
-        x = self.dropout(x)
-        x = F.relu(self.layer_norm(x))  # 你也许需要检查这里
-        x += residual
-        return x
 
-
-
-'''
-class TemporalBlock(nn.Module):
     def __init__(self, input: Tensor, weight: Tensor, bias, in_channels=1, out_channels=1, kernel_size=3, dilation=1, padding=0, dropout=0.2):
         Tensor = [20,128,128]
 
@@ -117,13 +99,20 @@ class TemporalBlock(nn.Module):
          #                      padding=dilation, dilation=dilation)
         #self.conv2 = nn.Conv1d(in_channels, out_channels, kernel_size,
         #                       padding=dilation, dilation=dilation)
-        self.dropout = nn.Dropout(dropout)
-        self.layer_norm = nn.LayerNorm(Tensor)  # THIS HAS TO MATCH WITH x = F.relu's input!!!!
+       
+       # self.dropout = nn.Dropout(dropout)
+       # self.layer_norm = nn.LayerNorm(Tensor)  # THIS HAS TO MATCH WITH x = F.relu's input!!!!
+
 
     def forward(self, x):
-        residual = x
-        Tensor=[20,128,34397]
-        self.layer_norm = nn.LayerNorm(Tensor, elementwise_affine = False)  # THIS HAS TO MATCH WITH x = F.relu's input!!!!
+            residual = x
+            x += residual
+            return x
+
+    #def forward(self, x):
+    #    residual = x
+    #    Tensor=[20,128,34397]
+    #    self.layer_norm = nn.LayerNorm(Tensor, elementwise_affine = False)  # THIS HAS TO MATCH WITH x = F.relu's input!!!!
 
        #Reshape x to match the expected shape for LayerNorm
        #B, L, C = x.size()  # Get batch size, length, and channels
@@ -134,9 +123,8 @@ class TemporalBlock(nn.Module):
        # x = x.transpose(1, 2).contiguous()  # Transpose back to [B, L, C]
 
        # x = F.relu(self.conv1(x))        
-        x = F.relu(self.layer_norm(x))  #这个地方的方程有问题。另外还要确认每一次的输入和输出是不是应该是不一样的但是对应的值.34397或者34401是卷积的结果
-        x = self.dropout(x)
-        x = F.relu(self.layer_norm(x))
-        x += residual #####################
-        return x
-'''
+    #    x = F.relu(self.layer_norm(x))  #这个地方的方程有问题。另外还要确认每一次的输入和输出是不是应该是不一样的但是对应的值.34397或者34401是音频长度
+    #    x = self.dropout(x)
+    #    x = F.relu(self.layer_norm(x))
+    #    x += residual #####################
+    #    return x

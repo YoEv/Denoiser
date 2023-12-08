@@ -199,7 +199,7 @@ class Solver(object):
 
         label = ["Train", "Valid"][cross_valid]
         name = label + f" | Epoch {epoch + 1}"
-        logprog = LogProgress(logger, data_loader, updates=self.num_prints, name=name)
+        logprog = LogProgress(logger, iter(data_loader), updates=self.num_prints, total=len(data_loader), name=name)
         for i, data in enumerate(logprog):
             noisy, clean = [x.to(self.device) for x in data]
             if not cross_valid:
@@ -209,6 +209,7 @@ class Solver(object):
                 noisy = noise + clean
             #clean_shape = clean.shape
             #desired_size = (20, clean.shape[1], clean.shape[2])
+            print("Clean shape_original:", clean.shape)
             clean = clean[:20, ...]
             print("Adjusted clean shape:", clean.shape)
             clean_shape = clean.shape
@@ -216,11 +217,11 @@ class Solver(object):
 
             if estimate is not None:
                 print("Estimate shape:", estimate.shape)
-                #estimated_size_0 = clean.shape[0]
-                #estimated_size_2 = clean.shape[2]
-                #estimate = F.interpolate(estimate, size=(estimated_size_0, 1, estimated_size_2), mode='nearest')
-                #estimated_size = (clean_shape[0], 1, clean_shape[2])  # 裁剪或调整模型输出的最后一个维度与 clean 张量的长度相同
-                estimate = estimate[:, :, :clean.shape[-1]]
+                if estimate.shape[-1] > clean.shape[-1]:
+                    estimate = estimate[..., :clean.shape[-1]]
+                if clean.shape[-1] > estimate.shape[-1]:
+                    clean = clean[..., :estimate.shape[-1]]
+                estimate = estimate[:, :, :clean.shape[-1]]###########
                 #estimate = estimate.reshape(clean_shape)
                 print("AfterEstimate shape:", estimate.shape)
 
