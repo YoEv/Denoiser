@@ -137,7 +137,7 @@ class Solver(object):
             start = time.time()
             logger.info('-' * 70)
             logger.info("Training...")
-            train_loss = self._run_one_epoch(epoch)  #################
+            train_loss = self._run_one_epoch(epoch)  ##########################
             logger.info(
                 bold(f'Train Summary | End of Epoch {epoch + 1} | '
                      f'Time {time.time() - start:.2f}s | Train Loss {train_loss:.5f}'))
@@ -207,7 +207,23 @@ class Solver(object):
                 sources = self.augment(sources)
                 noise, clean = sources
                 noisy = noise + clean
+            #clean_shape = clean.shape
+            #desired_size = (20, clean.shape[1], clean.shape[2])
+            clean = clean[:20, ...]
+            print("Adjusted clean shape:", clean.shape)
+            clean_shape = clean.shape
             estimate = self.dmodel(noisy) ########################
+
+            if estimate is not None:
+                print("Estimate shape:", estimate.shape)
+                #estimated_size_0 = clean.shape[0]
+                #estimated_size_2 = clean.shape[2]
+                #estimate = F.interpolate(estimate, size=(estimated_size_0, 1, estimated_size_2), mode='nearest')
+                #estimated_size = (clean_shape[0], 1, clean_shape[2])  # 裁剪或调整模型输出的最后一个维度与 clean 张量的长度相同
+                estimate = estimate[:, :, :clean.shape[-1]]
+                #estimate = estimate.reshape(clean_shape)
+                print("AfterEstimate shape:", estimate.shape)
+
             # apply a loss function after each layer
             with torch.autograd.set_detect_anomaly(True):
                 if self.args.loss == 'l1':
@@ -226,7 +242,7 @@ class Solver(object):
                 # optimize model in training mode
                 if not cross_valid:
                     self.optimizer.zero_grad()
-                    loss.backward()
+                    loss.backward() ###############################
                     self.optimizer.step()
 
             total_loss += loss.item()
