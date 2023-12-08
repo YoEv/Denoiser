@@ -38,9 +38,7 @@ def run(args):  # 参数为args
     noise_files = [os.path.join(noise_folder, file) for file in os.listdir(noise_folder) if file.endswith('.wav')]
 
 
-    model = ConvTasNet(sources={'clean': clean_files, 'noisy': noise_files}, N=128, L=20, B=128, H=512, P=3, X=8, R=4,
-                   audio_channels=2, norm_type="gLN", causal=False, mask_nonlinear='relu',
-                   samplerate=44100, segment_length=44100 * 2 * 4, frame_length=400, frame_step=100) # 创建Demucs模型实例，并使用args参数初始化模型
+    model = ConvTasNet(sources={'clean': clean_files, 'noisy': noise_files}, N=128, L=20, B=128, H=512, P=3, X=8, R=4,audio_channels=2, norm_type="gLN", causal=False, mask_nonlinear='relu', samplerate=44100, segment_length=44100 * 2 * 4, frame_length=400, frame_step=100) # 创建Demucs模型实例，并使用args参数初始化模型
     # 开始调用的同时，就开始RUN了，所以这一步是在RUN，之后的是模型使用条件
 
     if args.show: # 这个args.show是出现在什么地方的？？？？？
