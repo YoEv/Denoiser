@@ -1,0 +1,134 @@
+[[36m2024-11-21 14:26:43,067[0m][[34m__main__[0m][[32mINFO[0m] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser[0m
+[[36m2024-11-21 14:26:46,833[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 1890 files.[0m
+[[36m2024-11-21 14:26:46,861[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 1890 files.[0m
+[[36m2024-11-21 14:26:46,871[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 1890 files.[0m
+[[36m2024-11-21 14:26:46,881[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 1890 files.[0m
+[[36m2024-11-21 14:26:47,279[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 14:26:47,279[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-21 14:54:56,423[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 25/128 | 64.5 sec/it | Loss 3.38139[0m
+[[36m2024-11-21 15:22:14,552[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 50/128 | 65.0 sec/it | Loss 2.63741[0m
+[[36m2024-11-21 15:49:35,991[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 75/128 | 65.2 sec/it | Loss 2.21847[0m
+[[36m2024-11-21 16:16:41,515[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 100/128 | 65.2 sec/it | Loss 1.92992[0m
+[[36m2024-11-21 16:43:54,426[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 125/128 | 65.2 sec/it | Loss 1.71493[0m
+[[36m2024-11-21 16:47:00,665[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 1 | Time 8413.39s | Train Loss 1.69268[0m
+[[36m2024-11-21 16:47:00,673[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 16:47:00,673[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-21 16:50:44,910[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 378/1890 | 1.8 it/sec | Loss 0.13462[0m
+[[36m2024-11-21 16:53:44,524[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 756/1890 | 1.9 it/sec | Loss 0.13535[0m
+[[36m2024-11-21 16:57:29,281[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 1134/1890 | 1.8 it/sec | Loss 0.13576[0m
+[[36m2024-11-21 17:00:57,312[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 1512/1890 | 1.8 it/sec | Loss 0.13576[0m
+[[36m2024-11-21 17:07:07,541[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 1890/1890 | 1.6 it/sec | Loss 0.13586[0m
+[[36m2024-11-21 17:07:07,543[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 1 | Time 9620.26s | Valid Loss 0.13586[0m
+[[36m2024-11-21 17:07:07,544[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.1359[0m
+[[36m2024-11-21 17:07:07,555[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 17:07:07,556[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 1 | Train 1.69268 | Valid 0.13586 | Best 0.13586[0m
+[[36m2024-11-21 17:07:07,674[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 17:07:07,674[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-21 17:34:34,787[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 25/128 | 62.9 sec/it | Loss 0.69657[0m
+[[36m2024-11-21 18:01:42,851[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 50/128 | 64.0 sec/it | Loss 0.64690[0m
+[[36m2024-11-21 18:28:55,672[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 75/128 | 64.4 sec/it | Loss 0.60537[0m
+[[36m2024-11-21 18:55:45,030[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 100/128 | 64.4 sec/it | Loss 0.57006[0m
+[[36m2024-11-21 19:22:46,942[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 125/128 | 64.5 sec/it | Loss 0.53963[0m
+[[36m2024-11-21 19:25:49,010[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 2 | Time 8321.34s | Train Loss 0.53624[0m
+[[36m2024-11-21 19:25:49,012[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 19:25:49,012[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-21 19:29:32,665[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 378/1890 | 1.8 it/sec | Loss 0.04838[0m
+[[36m2024-11-21 19:32:32,912[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 756/1890 | 1.9 it/sec | Loss 0.05096[0m
+[[36m2024-11-21 19:36:19,345[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 1134/1890 | 1.8 it/sec | Loss 0.05204[0m
+[[36m2024-11-21 19:39:48,072[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 1512/1890 | 1.8 it/sec | Loss 0.05176[0m
+[[36m2024-11-21 19:45:58,543[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 1890/1890 | 1.6 it/sec | Loss 0.05077[0m
+[[36m2024-11-21 19:45:58,546[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 2 | Time 9530.87s | Valid Loss 0.05077[0m
+[[36m2024-11-21 19:45:58,546[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.0508[0m
+[[36m2024-11-21 19:45:58,549[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 19:45:58,549[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 2 | Train 0.53624 | Valid 0.05077 | Best 0.05077[0m
+[[36m2024-11-21 19:45:58,657[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 19:45:58,657[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-21 20:13:06,991[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 25/128 | 62.2 sec/it | Loss 0.37593[0m
+[[36m2024-11-21 20:40:04,392[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 50/128 | 63.4 sec/it | Loss 0.36001[0m
+[[36m2024-11-21 21:07:02,799[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 75/128 | 63.9 sec/it | Loss 0.34593[0m
+[[36m2024-11-21 21:33:59,582[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 100/128 | 64.1 sec/it | Loss 0.33289[0m
+[[36m2024-11-21 22:01:04,462[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 125/128 | 64.2 sec/it | Loss 0.32086[0m
+[[36m2024-11-21 22:04:09,594[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 3 | Time 8290.94s | Train Loss 0.31949[0m
+[[36m2024-11-21 22:04:09,596[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 22:04:09,596[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-21 22:07:59,395[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 378/1890 | 1.7 it/sec | Loss 0.02758[0m
+[[36m2024-11-21 22:11:03,407[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 756/1890 | 1.9 it/sec | Loss 0.03112[0m
+[[36m2024-11-21 22:14:51,782[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 1134/1890 | 1.8 it/sec | Loss 0.03245[0m
+[[36m2024-11-21 22:18:20,696[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 1512/1890 | 1.8 it/sec | Loss 0.03196[0m
+[[36m2024-11-21 22:24:30,138[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 1890/1890 | 1.6 it/sec | Loss 0.03051[0m
+[[36m2024-11-21 22:24:30,140[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 3 | Time 9511.48s | Valid Loss 0.03051[0m
+[[36m2024-11-21 22:24:30,140[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.0305[0m
+[[36m2024-11-21 22:24:30,143[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 22:24:30,143[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 3 | Train 0.31949 | Valid 0.03051 | Best 0.03051[0m
+[[36m2024-11-21 22:24:30,307[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-21 22:24:30,307[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-21 22:51:47,136[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 25/128 | 62.5 sec/it | Loss 0.25227[0m
+[[36m2024-11-21 23:18:55,302[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 50/128 | 63.8 sec/it | Loss 0.24417[0m
+[[36m2024-11-21 23:46:03,432[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 75/128 | 64.2 sec/it | Loss 0.23646[0m
+[[36m2024-11-22 00:13:10,098[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 100/128 | 64.4 sec/it | Loss 0.22913[0m
+[[36m2024-11-22 00:40:22,163[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 125/128 | 64.6 sec/it | Loss 0.22219[0m
+[[36m2024-11-22 00:43:24,122[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 4 | Time 8333.82s | Train Loss 0.22137[0m
+[[36m2024-11-22 00:43:24,124[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-22 00:43:24,125[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-22 00:47:15,295[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 378/1890 | 1.7 it/sec | Loss 0.02473[0m
+[[36m2024-11-22 00:50:16,185[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 756/1890 | 1.9 it/sec | Loss 0.02846[0m
+[[36m2024-11-22 00:54:01,240[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 1134/1890 | 1.8 it/sec | Loss 0.02984[0m
+[[36m2024-11-22 00:57:28,945[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 1512/1890 | 1.8 it/sec | Loss 0.02928[0m
+[[36m2024-11-22 01:03:37,764[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 1890/1890 | 1.6 it/sec | Loss 0.02770[0m
+[[36m2024-11-22 01:03:37,766[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 4 | Time 9547.46s | Valid Loss 0.02770[0m
+[[36m2024-11-22 01:03:37,766[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.0277[0m
+[[36m2024-11-22 01:03:37,772[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-22 01:03:37,772[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Evaluating on the test set...[0m
+[[36m2024-11-22 01:03:52,456[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 378/1890 | 112.3 it/sec[0m
+[[36m2024-11-22 01:03:54,946[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 756/1890 | 129.0 it/sec[0m
+[[36m2024-11-22 01:03:58,853[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 1134/1890 | 116.1 it/sec[0m
+[[36m2024-11-22 01:04:02,350[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 1512/1890 | 114.0 it/sec[0m
+[[36m2024-11-22 01:04:31,974[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 1890/1890 | 44.1 it/sec[0m
+[[36m2024-11-22 01:07:54,159[0m][[34m__main__[0m][[31mERROR[0m] - Some error happened[0m
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/process.py", line 256, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 127, in _estimate_and_run_metrics
+    return _run_metrics(clean, estimate, args, sr=16000)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 134, in _run_metrics
+    pesq_i = get_pesq(clean, estimate, sr=sr)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 151, in get_pesq
+    pesq_val += pesq(sr, ref_sig[i], out_sig[i], 'wb')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/pesq/_pesq.py", line 114, in pesq
+    return _pesq_inner(ref, deg, fs, mode, on_error)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/pesq/_pesq.py", line 65, in _pesq_inner
+    return cypesq(
+           ^^^^^^^
+  File "pesq/cypesq.pyx", line 171, in cypesq.cypesq
+  File "pesq/cypesq.pyx", line 193, in cypesq.cypesq
+cypesq.NoUtterancesError: b'No utterances detected'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 130, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 124, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 105, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 173, in train
+    pesq, stoi = evaluate(self.args, self.model, self.tt_loader)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 110, in evaluate
+    pesq_i, stoi_i = pending.result()
+                     ^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+cypesq.NoUtterancesError: b'No utterances detected'

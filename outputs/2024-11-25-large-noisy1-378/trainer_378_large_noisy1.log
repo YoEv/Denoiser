@@ -1,0 +1,143 @@
+[[36m2024-11-25 15:18:44,594[0m][[34m__main__[0m][[32mINFO[0m] - For logs, checkpoints and samples check /Users/evelyneli/Desktop/denoiser[0m
+[[36m2024-11-25 15:18:46,123[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 378 files.[0m
+[[36m2024-11-25 15:18:46,144[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 378 files.[0m
+[[36m2024-11-25 15:18:46,150[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 378 files.[0m
+[[36m2024-11-25 15:18:46,157[0m][[34mdenoiser.data[0m][[32mINFO[0m] - Matched 378 files.[0m
+[[36m2024-11-25 15:18:46,716[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:18:46,716[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-25 15:21:06,434[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 5/26 | 23.3 sec/it | Loss 5.01241[0m
+[[36m2024-11-25 15:23:23,757[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 10/26 | 25.2 sec/it | Loss 4.44649[0m
+[[36m2024-11-25 15:25:40,716[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 15/26 | 25.9 sec/it | Loss 4.03501[0m
+[[36m2024-11-25 15:27:57,939[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 20/26 | 26.2 sec/it | Loss 3.72997[0m
+[[36m2024-11-25 15:30:14,058[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 25/26 | 26.4 sec/it | Loss 3.48622[0m
+[[36m2024-11-25 15:30:44,804[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 1 | Time 718.09s | Train Loss 3.44333[0m
+[[36m2024-11-25 15:30:44,806[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:30:44,806[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-25 15:30:51,929[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 75/378 | 10.8 it/sec | Loss 0.95433[0m
+[[36m2024-11-25 15:30:56,684[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 150/378 | 12.8 it/sec | Loss 0.95921[0m
+[[36m2024-11-25 15:31:02,551[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 225/378 | 12.8 it/sec | Loss 0.96248[0m
+[[36m2024-11-25 15:31:08,350[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 300/378 | 12.8 it/sec | Loss 0.95968[0m
+[[36m2024-11-25 15:31:17,265[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 375/378 | 11.6 it/sec | Loss 0.94522[0m
+[[36m2024-11-25 15:31:42,505[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 1 | Time 775.79s | Valid Loss 0.94473[0m
+[[36m2024-11-25 15:31:42,507[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.9447[0m
+[[36m2024-11-25 15:31:42,515[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:31:42,515[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 1 | Train 3.44333 | Valid 0.94473 | Best 0.94473[0m
+[[36m2024-11-25 15:31:42,575[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:31:42,576[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-25 15:34:01,700[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 5/26 | 23.2 sec/it | Loss 2.25828[0m
+[[36m2024-11-25 15:36:19,291[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 10/26 | 25.2 sec/it | Loss 2.17324[0m
+[[36m2024-11-25 15:38:36,476[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 15/26 | 25.9 sec/it | Loss 2.10118[0m
+[[36m2024-11-25 15:40:53,429[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 20/26 | 26.2 sec/it | Loss 2.03486[0m
+[[36m2024-11-25 15:43:10,227[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 25/26 | 26.4 sec/it | Loss 1.97250[0m
+[[36m2024-11-25 15:43:41,245[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 2 | Time 718.67s | Train Loss 1.96109[0m
+[[36m2024-11-25 15:43:41,246[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:43:41,247[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-25 15:43:48,235[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 75/378 | 10.9 it/sec | Loss 0.77009[0m
+[[36m2024-11-25 15:43:52,944[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 150/378 | 13.0 it/sec | Loss 0.78880[0m
+[[36m2024-11-25 15:43:58,761[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 225/378 | 12.9 it/sec | Loss 0.80056[0m
+[[36m2024-11-25 15:44:04,409[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 300/378 | 13.0 it/sec | Loss 0.80294[0m
+[[36m2024-11-25 15:44:13,285[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 375/378 | 11.8 it/sec | Loss 0.83135[0m
+[[36m2024-11-25 15:44:38,519[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 2 | Time 775.94s | Valid Loss 0.83223[0m
+[[36m2024-11-25 15:44:38,520[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.8322[0m
+[[36m2024-11-25 15:44:38,524[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:44:38,525[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 2 | Train 1.96109 | Valid 0.83223 | Best 0.83223[0m
+[[36m2024-11-25 15:44:38,575[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:44:38,576[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-25 15:46:57,688[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 5/26 | 23.2 sec/it | Loss 1.60838[0m
+[[36m2024-11-25 15:49:14,684[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 10/26 | 25.1 sec/it | Loss 1.56646[0m
+[[36m2024-11-25 15:51:31,965[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 15/26 | 25.8 sec/it | Loss 1.52324[0m
+[[36m2024-11-25 15:53:48,793[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 20/26 | 26.2 sec/it | Loss 1.48351[0m
+[[36m2024-11-25 15:56:05,938[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 25/26 | 26.4 sec/it | Loss 1.44523[0m
+[[36m2024-11-25 15:56:36,757[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 3 | Time 718.18s | Train Loss 1.43766[0m
+[[36m2024-11-25 15:56:36,759[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:56:36,759[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-25 15:56:43,570[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 75/378 | 11.2 it/sec | Loss 0.39105[0m
+[[36m2024-11-25 15:56:48,334[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 150/378 | 13.1 it/sec | Loss 0.39267[0m
+[[36m2024-11-25 15:56:54,213[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 225/378 | 13.0 it/sec | Loss 0.39405[0m
+[[36m2024-11-25 15:56:59,926[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 300/378 | 13.0 it/sec | Loss 0.39420[0m
+[[36m2024-11-25 15:57:08,823[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 375/378 | 11.7 it/sec | Loss 0.39584[0m
+[[36m2024-11-25 15:57:34,054[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 3 | Time 775.48s | Valid Loss 0.39589[0m
+[[36m2024-11-25 15:57:34,056[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.3959[0m
+[[36m2024-11-25 15:57:34,060[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:57:34,060[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 3 | Train 1.43766 | Valid 0.39589 | Best 0.39589[0m
+[[36m2024-11-25 15:57:34,115[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 15:57:34,115[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-25 15:59:52,970[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 5/26 | 23.1 sec/it | Loss 1.21789[0m
+[[36m2024-11-25 16:02:09,899[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 10/26 | 25.1 sec/it | Loss 1.18798[0m
+[[36m2024-11-25 16:04:26,791[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 15/26 | 25.8 sec/it | Loss 1.16042[0m
+[[36m2024-11-25 16:06:44,004[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 20/26 | 26.2 sec/it | Loss 1.13488[0m
+[[36m2024-11-25 16:09:04,086[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 25/26 | 26.5 sec/it | Loss 1.10963[0m
+[[36m2024-11-25 16:09:35,160[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 4 | Time 721.04s | Train Loss 1.10485[0m
+[[36m2024-11-25 16:09:35,162[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:09:35,162[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-25 16:09:42,298[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 75/378 | 10.7 it/sec | Loss 0.18951[0m
+[[36m2024-11-25 16:09:47,121[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 150/378 | 12.7 it/sec | Loss 0.18988[0m
+[[36m2024-11-25 16:09:53,071[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 225/378 | 12.7 it/sec | Loss 0.19007[0m
+[[36m2024-11-25 16:09:58,842[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 300/378 | 12.7 it/sec | Loss 0.19006[0m
+[[36m2024-11-25 16:10:07,769[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 375/378 | 11.5 it/sec | Loss 0.19035[0m
+[[36m2024-11-25 16:10:33,006[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 4 | Time 778.89s | Valid Loss 0.19036[0m
+[[36m2024-11-25 16:10:33,007[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.1904[0m
+[[36m2024-11-25 16:10:33,009[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:10:33,010[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 4 | Train 1.10485 | Valid 0.19036 | Best 0.19036[0m
+[[36m2024-11-25 16:10:33,065[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:10:33,066[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-25 16:12:51,889[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 5/26 | 23.1 sec/it | Loss 0.95723[0m
+[[36m2024-11-25 16:15:08,744[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 10/26 | 25.1 sec/it | Loss 0.93804[0m
+[[36m2024-11-25 16:17:25,564[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 15/26 | 25.8 sec/it | Loss 0.91957[0m
+[[36m2024-11-25 16:19:42,288[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 20/26 | 26.2 sec/it | Loss 0.90146[0m
+[[36m2024-11-25 16:21:59,094[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 25/26 | 26.4 sec/it | Loss 0.88433[0m
+[[36m2024-11-25 16:22:30,077[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 5 | Time 717.01s | Train Loss 0.88096[0m
+[[36m2024-11-25 16:22:30,079[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:22:30,079[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-25 16:22:37,198[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 75/378 | 10.9 it/sec | Loss 0.12238[0m
+[[36m2024-11-25 16:22:42,148[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 150/378 | 12.7 it/sec | Loss 0.12324[0m
+[[36m2024-11-25 16:22:48,166[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 225/378 | 12.6 it/sec | Loss 0.12371[0m
+[[36m2024-11-25 16:22:54,025[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 300/378 | 12.6 it/sec | Loss 0.12368[0m
+[[36m2024-11-25 16:23:03,103[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 375/378 | 11.4 it/sec | Loss 0.12341[0m
+[[36m2024-11-25 16:23:28,342[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 5 | Time 775.28s | Valid Loss 0.12341[0m
+[[36m2024-11-25 16:23:28,343[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.1234[0m
+[[36m2024-11-25 16:23:28,346[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:23:28,347[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 5 | Train 0.88096 | Valid 0.12341 | Best 0.12341[0m
+[[36m2024-11-25 16:23:28,405[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:23:28,405[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Training...[0m
+[[36m2024-11-25 16:25:47,489[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 5/26 | 23.2 sec/it | Loss 0.78087[0m
+[[36m2024-11-25 16:28:04,593[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 10/26 | 25.1 sec/it | Loss 0.76590[0m
+[[36m2024-11-25 16:30:21,366[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 15/26 | 25.8 sec/it | Loss 0.75231[0m
+[[36m2024-11-25 16:32:37,922[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 20/26 | 26.2 sec/it | Loss 0.73932[0m
+[[36m2024-11-25 16:34:54,799[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 25/26 | 26.4 sec/it | Loss 0.72766[0m
+[[36m2024-11-25 16:35:25,763[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mTrain Summary | End of Epoch 6 | Time 717.36s | Train Loss 0.72530[0m
+[[36m2024-11-25 16:35:25,764[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:35:25,764[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Cross validation...[0m
+[[36m2024-11-25 16:35:32,782[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 75/378 | 10.9 it/sec | Loss 0.08085[0m
+[[36m2024-11-25 16:35:37,693[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 150/378 | 12.7 it/sec | Loss 0.08241[0m
+[[36m2024-11-25 16:35:43,723[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 225/378 | 12.6 it/sec | Loss 0.08328[0m
+[[36m2024-11-25 16:35:49,601[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 300/378 | 12.7 it/sec | Loss 0.08314[0m
+[[36m2024-11-25 16:35:58,658[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 375/378 | 11.4 it/sec | Loss 0.08239[0m
+[[36m2024-11-25 16:36:23,908[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mValid Summary | End of Epoch 6 | Time 775.50s | Valid Loss 0.08239[0m
+[[36m2024-11-25 16:36:23,909[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mNew best valid loss 0.0824[0m
+[[36m2024-11-25 16:36:23,912[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:36:23,912[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Evaluating on the test set...[0m
+[[36m2024-11-25 16:36:25,407[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 75/378 | 52.7 it/sec[0m
+[[36m2024-11-25 16:36:25,646[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 150/378 | 89.7 it/sec[0m
+[[36m2024-11-25 16:36:25,662[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 225/378 | 133.0 it/sec[0m
+[[36m2024-11-25 16:36:25,680[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 300/378 | 175.3 it/sec[0m
+[[36m2024-11-25 16:36:25,700[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval estimates | 375/378 | 216.5 it/sec[0m
+[[36m2024-11-25 16:36:50,706[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval metrics | 75/378 | 80618.9 it/sec[0m
+[[36m2024-11-25 16:36:55,361[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval metrics | 150/378 | 32.4 it/sec[0m
+[[36m2024-11-25 16:37:09,759[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval metrics | 225/378 | 11.9 it/sec[0m
+[[36m2024-11-25 16:37:26,113[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval metrics | 300/378 | 8.5 it/sec[0m
+[[36m2024-11-25 16:37:44,860[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - Eval metrics | 375/378 | 6.9 it/sec[0m
+[[36m2024-11-25 16:37:45,932[0m][[34mdenoiser.evaluate[0m][[32mINFO[0m] - [1mTest set performance:PESQ=1.0865390136759117, STOI=0.6597990939129329.[0m
+[[36m2024-11-25 16:37:45,934[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - Enhance and save samples...[0m
+[[36m2024-11-25 16:37:46,504[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 378/1890 | 678.8 it/sec[0m
+[[36m2024-11-25 16:37:46,894[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 756/1890 | 798.3 it/sec[0m
+[[36m2024-11-25 16:37:47,378[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 1134/1890 | 792.4 it/sec[0m
+[[36m2024-11-25 16:37:48,056[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 1512/1890 | 716.9 it/sec[0m
+[[36m2024-11-25 16:37:48,972[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 1890/1890 | 624.8 it/sec[0m
+[[36m2024-11-25 16:38:06,152[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 378/1890 | 22.1 it/sec[0m
+[[36m2024-11-25 16:38:22,127[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 756/1890 | 22.8 it/sec[0m
+[[36m2024-11-25 16:38:42,475[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 1134/1890 | 21.2 it/sec[0m
+[[36m2024-11-25 16:39:01,899[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 1512/1890 | 20.7 it/sec[0m
+[[36m2024-11-25 16:39:34,150[0m][[34mdenoiser.enhance[0m][[32mINFO[0m] - Generate enhanced files | 1890/1890 | 18.0 it/sec[0m
+[[36m2024-11-25 16:39:34,464[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - ----------------------------------------------------------------------[0m
+[[36m2024-11-25 16:39:34,464[0m][[34mdenoiser.solver[0m][[32mINFO[0m] - [1mOverall Summary | Epoch 6 | Train 0.72530 | Valid 0.08239 | Best 0.08239 | Pesq 1.08654 | Stoi 0.65980[0m
