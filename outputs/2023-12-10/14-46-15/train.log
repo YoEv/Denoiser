@@ -1,0 +1,61 @@
+[2023-12-10 14:46:15,258][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 14:46:18,364][denoiser.solver][INFO] - Loading checkpoint model: checkpoint.th
+[2023-12-10 14:46:18,724][denoiser.solver][INFO] - Replaying metrics from previous run
+[2023-12-10 14:46:18,725][denoiser.solver][INFO] - Epoch 1: Train=inf Valid=inf Best=inf
+[2023-12-10 14:46:18,725][denoiser.solver][INFO] - Epoch 2: Train=inf Valid=inf Best=inf
+[2023-12-10 14:46:18,726][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:46:18,726][denoiser.solver][INFO] - Training...
+[2023-12-10 14:46:47,494][denoiser.solver][INFO] - Train | Epoch 3 | 1/1 | 14.4 sec/it | Loss inf
+[2023-12-10 14:46:47,498][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 3 | Time 28.77s | Train Loss inf[0m
+[2023-12-10 14:46:47,498][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:46:47,499][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 14:46:51,121][denoiser.solver][INFO] - Valid | Epoch 3 | 5/25 | 1.7 it/sec | Loss inf
+[2023-12-10 14:46:51,384][denoiser.solver][INFO] - Valid | Epoch 3 | 10/25 | 2.9 it/sec | Loss inf
+[2023-12-10 14:46:51,686][denoiser.solver][INFO] - Valid | Epoch 3 | 15/25 | 3.9 it/sec | Loss inf
+[2023-12-10 14:46:51,898][denoiser.solver][INFO] - Valid | Epoch 3 | 20/25 | 4.8 it/sec | Loss inf
+[2023-12-10 14:47:17,289][denoiser.solver][INFO] - Valid | Epoch 3 | 25/25 | 0.9 it/sec | Loss inf
+[2023-12-10 14:47:17,292][denoiser.solver][INFO] - [1mValid Summary | End of Epoch 3 | Time 58.57s | Valid Loss inf[0m
+[2023-12-10 14:47:17,292][denoiser.solver][INFO] - [1mNew best valid loss inf[0m
+[2023-12-10 14:47:17,381][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:47:17,382][denoiser.solver][INFO] - Evaluating on the test set...
+[2023-12-10 14:47:20,786][denoiser.evaluate][INFO] - Eval estimates | 5/25 | 1.8 it/sec
+[2023-12-10 14:47:20,795][denoiser.evaluate][INFO] - Eval estimates | 10/25 | 3.4 it/sec
+[2023-12-10 14:47:20,814][denoiser.evaluate][INFO] - Eval estimates | 15/25 | 4.9 it/sec
+[2023-12-10 14:47:20,831][denoiser.evaluate][INFO] - Eval estimates | 20/25 | 6.3 it/sec
+[2023-12-10 14:47:45,847][denoiser.evaluate][INFO] - Eval estimates | 25/25 | 0.9 it/sec
+[2023-12-10 14:47:46,865][__main__][ERROR] - Some error happened
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/process.py", line 256, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 85, in _estimate_and_run_metrics
+    return _run_metrics(clean, estimate, args, sr=model.sample_rate)
+                                                  ^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1695, in __getattr__
+    raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+AttributeError: 'ConvTasNet' object has no attribute 'sample_rate'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 173, in train
+    pesq, stoi = evaluate(self.args, self.model, self.tt_loader)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 73, in evaluate
+    pesq_i, stoi_i = pending.result()
+                     ^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+AttributeError: 'ConvTasNet' object has no attribute 'sample_rate'

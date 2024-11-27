@@ -1,0 +1,73 @@
+[2023-12-10 15:53:16,601][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 15:53:19,631][denoiser.solver][INFO] - Loading checkpoint model: checkpoint.th
+[2023-12-10 15:53:19,996][denoiser.solver][INFO] - Replaying metrics from previous run
+[2023-12-10 15:53:19,996][denoiser.solver][INFO] - Epoch 1: Train=inf Valid=inf Best=inf
+[2023-12-10 15:53:19,996][denoiser.solver][INFO] - Epoch 2: Train=inf Valid=inf Best=inf
+[2023-12-10 15:53:19,998][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 15:53:19,998][denoiser.solver][INFO] - Training...
+[2023-12-10 15:53:48,446][denoiser.solver][INFO] - Train | Epoch 3 | 1/1 | 14.2 sec/it | Loss inf
+[2023-12-10 15:53:48,451][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 3 | Time 28.45s | Train Loss inf[0m
+[2023-12-10 15:53:48,451][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 15:53:48,451][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 15:53:52,544][denoiser.solver][INFO] - Valid | Epoch 3 | 5/25 | 1.5 it/sec | Loss inf
+[2023-12-10 15:53:52,802][denoiser.solver][INFO] - Valid | Epoch 3 | 10/25 | 2.6 it/sec | Loss inf
+[2023-12-10 15:53:53,042][denoiser.solver][INFO] - Valid | Epoch 3 | 15/25 | 3.5 it/sec | Loss inf
+[2023-12-10 15:53:53,264][denoiser.solver][INFO] - Valid | Epoch 3 | 20/25 | 4.4 it/sec | Loss inf
+[2023-12-10 15:54:18,635][denoiser.solver][INFO] - Valid | Epoch 3 | 25/25 | 0.9 it/sec | Loss inf
+[2023-12-10 15:54:18,636][denoiser.solver][INFO] - [1mValid Summary | End of Epoch 3 | Time 58.64s | Valid Loss inf[0m
+[2023-12-10 15:54:18,636][denoiser.solver][INFO] - [1mNew best valid loss inf[0m
+[2023-12-10 15:54:18,710][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 15:54:18,710][denoiser.solver][INFO] - Evaluating on the test set...
+[2023-12-10 15:54:22,447][denoiser.evaluate][INFO] - Eval estimates | 5/25 | 1.7 it/sec
+[2023-12-10 15:54:22,460][denoiser.evaluate][INFO] - Eval estimates | 10/25 | 3.1 it/sec
+[2023-12-10 15:54:22,475][denoiser.evaluate][INFO] - Eval estimates | 15/25 | 4.4 it/sec
+[2023-12-10 15:54:22,491][denoiser.evaluate][INFO] - Eval estimates | 20/25 | 5.8 it/sec
+[2023-12-10 15:54:47,509][denoiser.evaluate][INFO] - Eval estimates | 25/25 | 0.9 it/sec
+[2023-12-10 15:54:48,505][__main__][ERROR] - Some error happened
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/process.py", line 256, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 85, in _estimate_and_run_metrics
+    return _run_metrics(clean, estimate, args, sr=model.sample_rate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 92, in _run_metrics
+    pesq_i = get_pesq(clean, estimate, sr=sr)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 109, in get_pesq
+    pesq_val += pesq(sr, ref_sig[i], out_sig[i], 'wb')
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/pesq/_pesq.py", line 114, in pesq
+    return _pesq_inner(ref, deg, fs, mode, on_error)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/pesq/_pesq.py", line 65, in _pesq_inner
+    return cypesq(
+           ^^^^^^^
+  File "pesq/cypesq.pyx", line 171, in cypesq.cypesq
+  File "pesq/cypesq.pyx", line 193, in cypesq.cypesq
+cypesq.NoUtterancesError: b'No utterances detected'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 173, in train
+    pesq, stoi = evaluate(self.args, self.model, self.tt_loader)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 73, in evaluate
+    pesq_i, stoi_i = pending.result()
+                     ^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+cypesq.NoUtterancesError: b'No utterances detected'

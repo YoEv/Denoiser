@@ -1,0 +1,18 @@
+[2023-12-07 14:46:53,841][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-07 14:46:58,596][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-07 14:46:58,596][denoiser.solver][INFO] - Training...
+[2023-12-07 14:47:02,239][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 97, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 140, in train
+    train_loss = self._run_one_epoch(epoch)  #################
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 211, in _run_one_epoch
+    estimate = estimate.reshape(clean_shape)
+               ^^^^^^^^
+UnboundLocalError: cannot access local variable 'estimate' where it is not associated with a value

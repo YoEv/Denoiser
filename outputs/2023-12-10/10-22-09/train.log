@@ -1,0 +1,35 @@
+[2023-12-10 10:22:09,193][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 10:22:12,213][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:22:12,213][denoiser.solver][INFO] - Training...
+[2023-12-10 10:22:39,435][denoiser.solver][INFO] - Train | Epoch 1 | 1/1 | 13.6 sec/it | Loss inf
+[2023-12-10 10:22:39,440][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 1 | Time 27.23s | Train Loss inf[0m
+[2023-12-10 10:22:39,440][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:22:39,440][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 10:22:43,027][denoiser.solver][INFO] - Valid | Epoch 1 | 5/25 | 1.7 it/sec | Loss inf
+[2023-12-10 10:22:43,366][denoiser.solver][INFO] - Valid | Epoch 1 | 10/25 | 2.8 it/sec | Loss inf
+[2023-12-10 10:22:43,674][denoiser.solver][INFO] - Valid | Epoch 1 | 15/25 | 3.8 it/sec | Loss inf
+[2023-12-10 10:22:43,991][denoiser.solver][INFO] - Valid | Epoch 1 | 20/25 | 4.7 it/sec | Loss inf
+[2023-12-10 10:23:09,396][denoiser.solver][INFO] - Valid | Epoch 1 | 25/25 | 0.9 it/sec | Loss inf
+[2023-12-10 10:23:09,398][denoiser.solver][INFO] - [1mValid Summary | End of Epoch 1 | Time 57.18s | Valid Loss inf[0m
+[2023-12-10 10:23:09,398][denoiser.solver][INFO] - [1mNew best valid loss inf[0m
+[2023-12-10 10:23:09,448][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:23:09,448][denoiser.solver][INFO] - [1mOverall Summary | Epoch 1 | Train inf | Valid inf | Best inf[0m
+[2023-12-10 10:23:09,449][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 190, in train
+    self._serialize()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 74, in _serialize
+    package['model'] = serialize_model(self.model)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/utils.py", line 64, in serialize_model
+    args, kwargs = model._init_args_kwargs
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1695, in __getattr__
+    raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
+AttributeError: 'ConvTasNet' object has no attribute '_init_args_kwargs'

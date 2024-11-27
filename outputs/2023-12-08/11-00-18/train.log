@@ -1,0 +1,13 @@
+[2023-12-08 11:00:18,427][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-08 11:00:21,575][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 41, in run
+    model = ConvTasNet(sources={'clean': clean_files, 'noisy': noise_files}, N=128, L=20, B=128, H=512, P=3, X=8, R=4,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/utils.py", line 29, in __init__
+    init(self, *args, **kwargs)
+TypeError: ConvTasNet.__init__() got an unexpected keyword argument 'frame_length'

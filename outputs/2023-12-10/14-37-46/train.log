@@ -1,0 +1,62 @@
+[2023-12-10 14:37:46,365][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 14:37:49,771][denoiser.solver][INFO] - Loading checkpoint model: checkpoint.th
+[2023-12-10 14:37:50,158][denoiser.solver][INFO] - Replaying metrics from previous run
+[2023-12-10 14:37:50,159][denoiser.solver][INFO] - Epoch 1: Train=inf Valid=inf Best=inf
+[2023-12-10 14:37:50,159][denoiser.solver][INFO] - Epoch 2: Train=inf Valid=inf Best=inf
+[2023-12-10 14:37:50,160][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:37:50,160][denoiser.solver][INFO] - Training...
+[2023-12-10 14:38:17,893][denoiser.solver][INFO] - Train | Epoch 3 | 1/1 | 13.8 sec/it | Loss inf
+[2023-12-10 14:38:17,897][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 3 | Time 27.74s | Train Loss inf[0m
+[2023-12-10 14:38:17,898][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:38:17,898][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 14:38:21,358][denoiser.solver][INFO] - Valid | Epoch 3 | 5/25 | 1.8 it/sec | Loss inf
+[2023-12-10 14:38:21,621][denoiser.solver][INFO] - Valid | Epoch 3 | 10/25 | 3.0 it/sec | Loss inf
+[2023-12-10 14:38:21,906][denoiser.solver][INFO] - Valid | Epoch 3 | 15/25 | 4.0 it/sec | Loss inf
+[2023-12-10 14:38:22,135][denoiser.solver][INFO] - Valid | Epoch 3 | 20/25 | 5.0 it/sec | Loss inf
+[2023-12-10 14:38:47,460][denoiser.solver][INFO] - Valid | Epoch 3 | 25/25 | 0.9 it/sec | Loss inf
+[2023-12-10 14:38:47,462][denoiser.solver][INFO] - [1mValid Summary | End of Epoch 3 | Time 57.30s | Valid Loss inf[0m
+[2023-12-10 14:38:47,462][denoiser.solver][INFO] - [1mNew best valid loss inf[0m
+[2023-12-10 14:38:47,546][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:38:47,546][denoiser.solver][INFO] - Evaluating on the test set...
+[2023-12-10 14:38:51,146][denoiser.evaluate][INFO] - Eval estimates | 5/25 | 1.7 it/sec
+[2023-12-10 14:38:51,158][denoiser.evaluate][INFO] - Eval estimates | 10/25 | 3.2 it/sec
+[2023-12-10 14:38:51,171][denoiser.evaluate][INFO] - Eval estimates | 15/25 | 4.6 it/sec
+[2023-12-10 14:38:51,185][denoiser.evaluate][INFO] - Eval estimates | 20/25 | 6.0 it/sec
+[2023-12-10 14:39:16,206][denoiser.evaluate][INFO] - Eval estimates | 25/25 | 0.9 it/sec
+[2023-12-10 14:39:17,176][__main__][ERROR] - Some error happened
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/process.py", line 256, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 84, in _estimate_and_run_metrics
+    estimate = get_estimate(model, noisy, args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/enhance.py", line 68, in get_estimate
+    noisy_resized = noisy[:, :, :estimate.shape[2], :estimate.shape[3]]
+                                                     ~~~~~~~~~~~~~~^^^
+IndexError: tuple index out of range
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 173, in train
+    pesq, stoi = evaluate(self.args, self.model, self.tt_loader)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 73, in evaluate
+    pesq_i, stoi_i = pending.result()
+                     ^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+IndexError: tuple index out of range

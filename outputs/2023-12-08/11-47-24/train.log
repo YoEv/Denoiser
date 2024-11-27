@@ -1,0 +1,28 @@
+[2023-12-08 11:47:24,391][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-08 11:47:29,420][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-08 11:47:29,421][denoiser.solver][INFO] - Training...
+[2023-12-08 11:48:03,261][denoiser.solver][INFO] - Train | Epoch 1 | 1/1 | 16.9 sec/it | Loss inf
+[2023-12-08 11:48:03,265][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 1 | Time 33.84s | Train Loss inf[0m
+[2023-12-08 11:48:03,265][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-08 11:48:03,265][denoiser.solver][INFO] - Cross validation...
+[2023-12-08 11:48:08,186][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 151, in train
+    valid_loss = self._run_one_epoch(epoch, cross_valid=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 230, in _run_one_epoch
+    loss = F.l1_loss(clean, estimate)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/functional.py", line 3297, in l1_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/functional.py", line 73, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The size of tensor a (56000) must match the size of tensor b (11140) at non-singleton dimension 2

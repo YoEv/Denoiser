@@ -1,0 +1,33 @@
+[2023-12-08 11:40:30,259][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-08 11:40:35,534][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-08 11:40:35,534][denoiser.solver][INFO] - Training...
+[2023-12-08 11:41:11,743][denoiser.solver][INFO] - Train | Epoch 1 | 1/1 | 18.1 sec/it | Loss inf
+[2023-12-08 11:41:11,748][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 1 | Time 36.21s | Train Loss inf[0m
+[2023-12-08 11:41:11,748][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-08 11:41:11,748][denoiser.solver][INFO] - Cross validation...
+[2023-12-08 11:41:16,593][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 151, in train
+    valid_loss = self._run_one_epoch(epoch, cross_valid=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 215, in _run_one_epoch
+    estimate = self.dmodel(noisy) ########################
+               ^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 56, in forward
+    frames = librosa.util.frame(x.cpu().numpy(), frame_length=self.frame_length, hop_length=self.frame_step)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/librosa/util/utils.py", line 206, in frame
+    raise ParameterError(
+librosa.util.exceptions.ParameterError: Input is too short (n=1) for frame_length=400

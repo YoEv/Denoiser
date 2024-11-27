@@ -1,0 +1,18 @@
+[2023-12-07 15:34:54,641][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-07 15:34:59,554][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-07 15:34:59,554][denoiser.solver][INFO] - Training...
+[2023-12-07 15:38:21,844][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 97, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 140, in train
+    train_loss = self._run_one_epoch(epoch)  #################
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 219, in _run_one_epoch
+    estimate = estimate[27, :1, :clean_shape[2]]  # 裁剪或调整模型输出的最后一个维度与 clean 张量的长度相同
+               ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: index 27 is out of bounds for dimension 0 with size 20

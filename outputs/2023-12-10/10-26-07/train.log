@@ -1,0 +1,12 @@
+[2023-12-10 10:26:07,521][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 10:26:10,603][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:26:10,603][denoiser.solver][INFO] - Training...
+[2023-12-10 10:26:37,661][denoiser.solver][INFO] - Train | Epoch 1 | 1/1 | 13.5 sec/it | Loss inf
+[2023-12-10 10:26:37,666][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 1 | Time 27.06s | Train Loss inf[0m
+[2023-12-10 10:26:37,666][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:26:37,666][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 10:26:41,244][denoiser.solver][INFO] - Valid | Epoch 1 | 5/25 | 1.7 it/sec | Loss inf
+[2023-12-10 10:26:41,603][denoiser.solver][INFO] - Valid | Epoch 1 | 10/25 | 2.8 it/sec | Loss inf
+[2023-12-10 10:26:41,927][denoiser.solver][INFO] - Valid | Epoch 1 | 15/25 | 3.8 it/sec | Loss inf
+[2023-12-10 10:26:42,228][denoiser.solver][INFO] - Valid | Epoch 1 | 20/25 | 4.7 it/sec | Loss inf
+[2023-12-10 10:26:50,888][denoiser.solver][INFO] - Valid | Epoch 1 | 25/25 | 2.0 it/sec | Loss inf

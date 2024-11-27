@@ -1,0 +1,88 @@
+[2023-12-10 10:41:17,249][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 10:41:20,227][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:41:20,227][denoiser.solver][INFO] - Training...
+[2023-12-10 10:41:46,989][denoiser.solver][INFO] - Train | Epoch 1 | 1/1 | 13.4 sec/it | Loss inf
+[2023-12-10 10:41:46,994][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 1 | Time 26.77s | Train Loss inf[0m
+[2023-12-10 10:41:46,994][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:41:46,994][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 10:41:50,419][denoiser.solver][INFO] - Valid | Epoch 1 | 5/25 | 1.8 it/sec | Loss inf
+[2023-12-10 10:41:50,666][denoiser.solver][INFO] - Valid | Epoch 1 | 10/25 | 3.0 it/sec | Loss inf
+[2023-12-10 10:41:50,888][denoiser.solver][INFO] - Valid | Epoch 1 | 15/25 | 4.2 it/sec | Loss inf
+[2023-12-10 10:41:51,090][denoiser.solver][INFO] - Valid | Epoch 1 | 20/25 | 5.2 it/sec | Loss inf
+[2023-12-10 10:42:16,414][denoiser.solver][INFO] - Valid | Epoch 1 | 25/25 | 0.9 it/sec | Loss inf
+[2023-12-10 10:42:16,415][denoiser.solver][INFO] - [1mValid Summary | End of Epoch 1 | Time 56.19s | Valid Loss inf[0m
+[2023-12-10 10:42:16,415][denoiser.solver][INFO] - [1mNew best valid loss inf[0m
+[2023-12-10 10:42:16,465][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:42:16,465][denoiser.solver][INFO] - [1mOverall Summary | Epoch 1 | Train inf | Valid inf | Best inf[0m
+[2023-12-10 10:42:18,913][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:42:18,914][denoiser.solver][INFO] - Training...
+[2023-12-10 10:42:46,583][denoiser.solver][INFO] - Train | Epoch 2 | 1/1 | 13.8 sec/it | Loss inf
+[2023-12-10 10:42:46,588][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 2 | Time 27.67s | Train Loss inf[0m
+[2023-12-10 10:42:46,588][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:42:46,588][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 10:42:50,069][denoiser.solver][INFO] - Valid | Epoch 2 | 5/25 | 1.8 it/sec | Loss inf
+[2023-12-10 10:42:50,304][denoiser.solver][INFO] - Valid | Epoch 2 | 10/25 | 3.0 it/sec | Loss inf
+[2023-12-10 10:42:50,530][denoiser.solver][INFO] - Valid | Epoch 2 | 15/25 | 4.1 it/sec | Loss inf
+[2023-12-10 10:42:50,726][denoiser.solver][INFO] - Valid | Epoch 2 | 20/25 | 5.1 it/sec | Loss inf
+[2023-12-10 10:43:16,036][denoiser.solver][INFO] - Valid | Epoch 2 | 25/25 | 0.9 it/sec | Loss inf
+[2023-12-10 10:43:16,037][denoiser.solver][INFO] - [1mValid Summary | End of Epoch 2 | Time 57.12s | Valid Loss inf[0m
+[2023-12-10 10:43:16,038][denoiser.solver][INFO] - [1mNew best valid loss inf[0m
+[2023-12-10 10:43:16,105][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:43:16,105][denoiser.solver][INFO] - [1mOverall Summary | Epoch 2 | Train inf | Valid inf | Best inf[0m
+[2023-12-10 10:43:18,533][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:43:18,533][denoiser.solver][INFO] - Training...
+[2023-12-10 10:43:44,876][denoiser.solver][INFO] - Train | Epoch 3 | 1/1 | 13.2 sec/it | Loss inf
+[2023-12-10 10:43:44,881][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 3 | Time 26.35s | Train Loss inf[0m
+[2023-12-10 10:43:44,881][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:43:44,881][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 10:43:48,353][denoiser.solver][INFO] - Valid | Epoch 3 | 5/25 | 1.8 it/sec | Loss inf
+[2023-12-10 10:43:48,598][denoiser.solver][INFO] - Valid | Epoch 3 | 10/25 | 3.0 it/sec | Loss inf
+[2023-12-10 10:43:48,839][denoiser.solver][INFO] - Valid | Epoch 3 | 15/25 | 4.1 it/sec | Loss inf
+[2023-12-10 10:43:49,043][denoiser.solver][INFO] - Valid | Epoch 3 | 20/25 | 5.1 it/sec | Loss inf
+[2023-12-10 10:44:14,368][denoiser.solver][INFO] - Valid | Epoch 3 | 25/25 | 0.9 it/sec | Loss inf
+[2023-12-10 10:44:14,371][denoiser.solver][INFO] - [1mValid Summary | End of Epoch 3 | Time 55.84s | Valid Loss inf[0m
+[2023-12-10 10:44:14,371][denoiser.solver][INFO] - [1mNew best valid loss inf[0m
+[2023-12-10 10:44:14,433][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 10:44:14,434][denoiser.solver][INFO] - Evaluating on the test set...
+[2023-12-10 10:44:17,797][denoiser.evaluate][INFO] - Eval estimates | 5/25 | 1.9 it/sec
+[2023-12-10 10:44:17,809][denoiser.evaluate][INFO] - Eval estimates | 10/25 | 3.4 it/sec
+[2023-12-10 10:44:17,820][denoiser.evaluate][INFO] - Eval estimates | 15/25 | 4.9 it/sec
+[2023-12-10 10:44:17,840][denoiser.evaluate][INFO] - Eval estimates | 20/25 | 6.4 it/sec
+[2023-12-10 10:44:42,870][denoiser.evaluate][INFO] - Eval estimates | 25/25 | 0.9 it/sec
+[2023-12-10 10:44:43,905][__main__][ERROR] - Some error happened
+concurrent.futures.process._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/process.py", line 256, in _process_worker
+    r = call_item.fn(*call_item.args, **call_item.kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 84, in _estimate_and_run_metrics
+    estimate = get_estimate(model, noisy, args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/enhance.py", line 68, in get_estimate
+    estimate = (1 - args.dry) * estimate + args.dry * noisy
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (11140) must match the size of tensor b (56000) at non-singleton dimension 2
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 173, in train
+    pesq, stoi = evaluate(self.args, self.model, self.tt_loader)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/evaluate.py", line 73, in evaluate
+    pesq_i, stoi_i = pending.result()
+                     ^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+RuntimeError: The size of tensor a (11140) must match the size of tensor b (56000) at non-singleton dimension 2

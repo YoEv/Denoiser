@@ -1,0 +1,63 @@
+[2023-12-08 10:12:14,393][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-08 10:12:18,865][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-08 10:12:18,865][denoiser.solver][INFO] - Training...
+[2023-12-08 10:12:47,604][denoiser.solver][INFO] - Train | Epoch 1 | 1/1 | 14.3 sec/it | Loss inf
+[2023-12-08 10:12:47,608][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 1 | Time 28.74s | Train Loss inf[0m
+[2023-12-08 10:12:47,609][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-08 10:12:47,609][denoiser.solver][INFO] - Cross validation...
+[2023-12-08 10:12:50,390][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 97, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 151, in train
+    valid_loss = self._run_one_epoch(epoch, cross_valid=True)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 203, in _run_one_epoch
+    for i, data in enumerate(logprog):
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/utils.py", line 135, in __next__
+    value = next(self._iterator)
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 630, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1345, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1371, in _process_data
+    data.reraise()
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/_utils.py", line 694, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/data.py", line 96, in __getitem__
+    return self.noisy_set[index], self.clean_set[index]
+           ~~~~~~~~~~~~~~^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/audio.py", line 94, in __getitem__
+    out, sr = torchaudio.load(str(file), num_frames=num_frames)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torchaudio/_backend/utils.py", line 203, in load
+    return backend.load(uri, frame_offset, num_frames, normalize, channels_first, format, buffer_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torchaudio/_backend/ffmpeg.py", line 334, in load
+    return load_audio(os.path.normpath(uri), frame_offset, num_frames, normalize, channels_first, format)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torchaudio/_backend/ffmpeg.py", line 99, in load_audio
+    filter = _get_load_filter(frame_offset, num_frames, convert)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torchaudio/_backend/ffmpeg.py", line 57, in _get_load_filter
+    raise RuntimeError("Invalid argument: num_frames must be -1 or greater than 0. Found: {}".format(num_frames))
+RuntimeError: Invalid argument: num_frames must be -1 or greater than 0. Found: 0
+

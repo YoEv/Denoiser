@@ -1,0 +1,31 @@
+[2023-12-10 14:54:31,055][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 14:54:34,141][denoiser.solver][INFO] - Loading checkpoint model: checkpoint.th
+[2023-12-10 14:54:34,506][denoiser.solver][INFO] - Replaying metrics from previous run
+[2023-12-10 14:54:34,507][denoiser.solver][INFO] - Epoch 1: Train=inf Valid=inf Best=inf
+[2023-12-10 14:54:34,507][denoiser.solver][INFO] - Epoch 2: Train=inf Valid=inf Best=inf
+[2023-12-10 14:54:34,508][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:54:34,508][denoiser.solver][INFO] - Training...
+[2023-12-10 14:54:38,379][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 121, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 114, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 95, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 140, in train
+    train_loss = self._run_one_epoch(epoch)  ##########################
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 216, in _run_one_epoch
+    estimate = self.dmodel(noisy) ########################
+               ^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Toys/Factory/anaconda3/envs/dnoise/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/ConvTasnet1.py", line 60, in forward
+    frames = librosa.util.frame(x.cpu().numpy(), frame_length=self.frame_length, hop_length=self.frame_step, sample_rate=self.sample_rate)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: frame() got an unexpected keyword argument 'sample_rate'

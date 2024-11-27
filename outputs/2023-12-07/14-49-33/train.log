@@ -1,0 +1,18 @@
+[2023-12-07 14:49:33,970][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-07 14:49:37,252][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-07 14:49:37,252][denoiser.solver][INFO] - Training...
+[2023-12-07 14:52:55,559][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 97, in run
+    solver.train()
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 140, in train
+    train_loss = self._run_one_epoch(epoch)  #################
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 214, in _run_one_epoch
+    estimate = estimate.reshape(clean_shape)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: shape '[27, 1, 64000]' is invalid for input of size 6879600

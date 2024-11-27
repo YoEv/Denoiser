@@ -1,0 +1,13 @@
+[2023-12-08 10:45:40,814][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-08 10:45:44,193][__main__][ERROR] - Some error happened
+Traceback (most recent call last):
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 123, in main
+    _main(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 116, in _main
+    run(args)
+  File "/Volumes/Castile/HackerProj/denoiser/train.py", line 25, in run
+    from denoiser.solver import Solver
+  File "/Volumes/Castile/HackerProj/denoiser/denoiser/solver.py", line 202
+    logprog = LogProgress(logger, iter(data_loader), updates=self.num_prints, total=len(data_loader) name=name)
+                                                                                    ^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?

@@ -1,0 +1,16 @@
+[2023-12-10 14:44:30,967][__main__][INFO] - For logs, checkpoints and samples check /Volumes/Castile/HackerProj/denoiser
+[2023-12-10 14:44:33,981][denoiser.solver][INFO] - Loading checkpoint model: checkpoint.th
+[2023-12-10 14:44:34,341][denoiser.solver][INFO] - Replaying metrics from previous run
+[2023-12-10 14:44:34,341][denoiser.solver][INFO] - Epoch 1: Train=inf Valid=inf Best=inf
+[2023-12-10 14:44:34,342][denoiser.solver][INFO] - Epoch 2: Train=inf Valid=inf Best=inf
+[2023-12-10 14:44:34,343][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:44:34,343][denoiser.solver][INFO] - Training...
+[2023-12-10 14:45:04,656][denoiser.solver][INFO] - Train | Epoch 3 | 1/1 | 15.1 sec/it | Loss inf
+[2023-12-10 14:45:04,660][denoiser.solver][INFO] - [1mTrain Summary | End of Epoch 3 | Time 30.32s | Train Loss inf[0m
+[2023-12-10 14:45:04,661][denoiser.solver][INFO] - ----------------------------------------------------------------------
+[2023-12-10 14:45:04,661][denoiser.solver][INFO] - Cross validation...
+[2023-12-10 14:45:08,616][denoiser.solver][INFO] - Valid | Epoch 3 | 5/25 | 1.5 it/sec | Loss inf
+[2023-12-10 14:45:09,059][denoiser.solver][INFO] - Valid | Epoch 3 | 10/25 | 2.5 it/sec | Loss inf
+[2023-12-10 14:45:09,525][denoiser.solver][INFO] - Valid | Epoch 3 | 15/25 | 3.3 it/sec | Loss inf
+[2023-12-10 14:45:09,851][denoiser.solver][INFO] - Valid | Epoch 3 | 20/25 | 4.1 it/sec | Loss inf
+[2023-12-10 14:45:35,094][denoiser.solver][INFO] - Valid | Epoch 3 | 25/25 | 0.9 it/sec | Loss inf
