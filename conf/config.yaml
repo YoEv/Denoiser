@@ -1,11 +1,8 @@
 defaults:
   - dset: debug
-  - hydra/job_logging: colorlog
-  - hydra/hydra_logging: colorlog
-  - /Volumes/Castile/HackerProj/denoiser/conf/dset/debug.yaml
-  - /Volumes/Castile/HackerProj/denoiser/outputs/exp_/.hydra/config.yaml
-  - /Volumes/Castile/HackerProj/denoiser/outputs/exp_/.hydra/hydra.yaml
   - _self_
+  - override hydra/job_logging: colorlog
+  - override hydra/hydra_logging: colorlog
 
 # Dataset related
 sample_rate: 16000
@@ -29,7 +26,7 @@ show: 0   # just show the model and its size and exit
 
 # Checkpointing, by default automatically load last checkpoint
 checkpoint: true
-continue_from: '' # Path the a checkpoint.th file to start from.
+continue_from: '/Users/evelyneli/Desktop/denoiser/checkpoint.th' # Path the a checkpoint.th file to start from.
                   # this is not used in the name of the experiment!
                   # so use a dummy=something not to mixup experiments.
 continue_best: false  # continue from best, not last state if continue_from is set.
@@ -40,6 +37,9 @@ best_file: best.th  # will contain only best model at any point
 history_file: history.json
 samples_dir: samples
 save_again: false  # if true, only load checkpoint and save again, useful to reexport best.th
+model_path: null  # 默认值为 null 或指定路径
+convtasnet_small: false  # 是否使用小型 ConvTasNet 模型
+convtasnet_large: True  # 是否使用大型 ConvTasNet 模型
 
 # Other stuff
 seed: 2036
@@ -59,25 +59,27 @@ loss: l1
 stft_loss: False
 stft_sc_factor: .5
 stft_mag_factor: .5
-epochs: 3
-batch_size: 64
+epochs: 1
+batch_size: 16
 
 # Models
-model: demucs # either demucs or dwave
-demucs:
-  chin: 1
-  chout: 1
-  hidden: 48
-  max_hidden: 10000
-  causal: true
-  glu: true
-  depth: 5
-  kernel_size: 8
-  stride: 4
-  normalize: true
-  resample: 4
-  growth: 2
-  rescale: 0.1
+model: ConvTasNet
+ConvTasNet:
+  N: 8               # Encoder filters数量
+  L: 1               # 编码器的卷积核大小（相当于时间步的大小）
+  B: 16               # Block中通道数量
+  H: 32               # 卷积block中的隐藏层通道数量
+  P: 1                # 卷积block中的卷积核大小
+  X: 16               # 卷积block的数量
+  R: 8               # 重复的block层数
+  audio_channels: 1   # 输入音频的通道数（立体声为2）
+  norm_type: "gLN"    # 使用全局层归一化
+  causal: false       # 非因果结构
+  mask_nonlinear: 'relu'  # Mask后用ReLU激活函数
+  sample_rate: 16000  # 采样率，与 Demucs 一样
+  segment_length: 44100 * 2 * 4  # 音频片段长度，可能需要根据实际情况调整
+  frame_length: 400    # STFT窗口大小
+  frame_step: 100      # STFT步长
 
 # Experiment launching, distributed
 ddp: false
