@@ -7,6 +7,7 @@ This is a time-domian denoiser project based on modified Conv-TasNet architectur
 This project get the reference from Demucs project and Conv-TasNet Architechture. 
 Two papers sourses:
 [Real Time Speech Enhancement in the Waveform Domain](https://arxiv.org/abs/2006.12847)
+
 [Conv-TasNet: Surpassing Ideal Time-Frequency Magnitude Masking for Speech Separation](https://arxiv.org/abs/1809.07454)
 
 The proposed model is based on an encoder-separator-decoder architecture with temporal convolutional blocks. It is optimized on time domains, using l1 loss functions.
