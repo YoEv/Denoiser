@@ -8,6 +8,7 @@
 
 import logging
 import os
+import json
 
 import hydra
 
@@ -21,7 +22,7 @@ def run(args):  # 参数为args
 
     from denoiser import distrib  # 分GPU训练-DDP
     from denoiser.data import NoisyCleanSet  
-    from denoiser.ConvTasnet1 import ConvTasNet
+    from denoiser.ConvTasNet import ConvTasNet
     from denoiser.solver import Solver
    
 
@@ -30,15 +31,24 @@ def run(args):  # 参数为args
 
     import os
 
-    clean_folder = '/Volumes/Castile/HackerProj/denoiser/train/clean'
-    noise_folder = '/Volumes/Castile/HackerProj/denoiser/train/noisy'
+    # 训练数据集目录
+    train_json_dir = '/Volumes/Castile/HackerProj/Denoiser/egs/debug/tr'
+
+    # 初始化 NoisyCleanSet，自动匹配 JSON 文件
+    tr_dataset = NoisyCleanSet(train_json_dir, length=48000, stride=48000, pad=True, sample_rate=16000)
+
+    # 检查匹配结果
+    print(f"Total samples: {len(tr_dataset)}")
+
+    clean_folder = '/Volumes/Castile/HackerProj/Denoiser/train/clean'
+    noise_folder = '/Volumes/Castile/HackerProj/Denoiser/train/noisy'
 
 
     clean_files = [os.path.join(clean_folder, file) for file in os.listdir(clean_folder) if file.endswith('.wav')]
     noise_files = [os.path.join(noise_folder, file) for file in os.listdir(noise_folder) if file.endswith('.wav')]
 
 
-    model = ConvTasNet(sources={'clean': clean_files, 'noisy': noise_files}, N=128, L=20, B=128, H=512, P=3, X=8, R=4,audio_channels=2, norm_type="gLN", causal=False, mask_nonlinear='relu', samplerate=44100, segment_length=44100 * 2 * 4, frame_length=400, frame_step=100) # 创建Demucs模型实例，并使用args参数初始化模型
+    model = ConvTasNet(sources={'clean': clean_files, 'noisy': noise_files}, N=8, L=1, B=16, H=32, P=1, X=16, R=8, audio_channels=1, norm_type="gLN", causal=False, mask_nonlinear='relu', sample_rate=16000, segment_length=44100 * 2 * 4, frame_length=400, frame_step=100) # 创建ConvTasNet模型实例，并使用args参数初始化模型
     # 开始调用的同时，就开始RUN了，所以这一步是在RUN，之后的是模型使用条件
 
     if args.show: # 这个args.show是出现在什么地方的？？？？？
@@ -84,7 +94,7 @@ def run(args):  # 参数为args
         model.cuda()      # 如果cuda可用
 
     # optimizer
-    if args.optim == "adam":   # 选择参数优化器？ ？？ 这个通过什么方式
+    if args.optim == "adam":   
         optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, betas=(0.9, args.beta2))
     else:
         logger.fatal('Invalid optimizer %s', args.optim)
@@ -112,7 +122,6 @@ def _main(args):
         start_ddp_workers(args)
     else:
         run(args)
-
 
 
 @hydra.main(version_base=None,config_path="conf",config_name="config")
