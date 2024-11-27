@@ -17,7 +17,8 @@ import torchaudio
 
 from .audio import Audioset, find_audio_files
 from . import distrib, pretrained
-from .demucs import DemucsStreamer
+from .ConvTasNet import ConvTasNetStreamer
+from . import ConvTasNet
 
 from .utils import LogProgress
 
@@ -55,9 +56,10 @@ group.add_argument("--noisy_json", type=str, default=None,
 
 
 def get_estimate(model, noisy, args):
+    logger.info(f"Input to model: {noisy.shape}")
     torch.set_num_threads(1)
     if args.streaming:
-        streamer = DemucsStreamer(model, dry=args.dry)
+        streamer = ConvTasNetStreamer(model, dry=args.dry, num_frames=1000) #需要调整  
         with torch.no_grad():
             estimate = torch.cat([
                 streamer.feed(noisy[0]),
@@ -65,7 +67,19 @@ def get_estimate(model, noisy, args):
     else:
         with torch.no_grad():
             estimate = model(noisy)
+            logger.info(f"Output from model: {estimate.shape}")
+
+            if estimate.shape[2] > noisy.shape[2]:  # 如果 estimate 比 noisy 长
+               estimate = estimate[:, :, :noisy.shape[2]]
+            elif estimate.shape[2] < noisy.shape[2]:  # 如果 estimate 比 noisy 短
+               padding = noisy.shape[2] - estimate.shape[2]
+               estimate = torch.nn.functional.pad(estimate, (0, padding), "constant", 0)
+
+            if estimate.shape != noisy.shape:
+                print("Shape mismatch! Estimate shape:", estimate.shape, "Noisy resized shape:", noisy.shape)
+     
             estimate = (1 - args.dry) * estimate + args.dry * noisy
+            
     return estimate
 
 
@@ -108,16 +122,34 @@ def _estimate_and_save(model, noisy_signals, filenames, out_dir, args):
 
 
 def enhance(args, model=None, local_out_dir=None):
-    # Load model
+    # 如果没有传入模型，则加载 ConvTasNet 模型
     if not model:
-        model = pretrained.get_model(args).to(args.device)
-    model.eval()
-    if local_out_dir:
-        out_dir = local_out_dir
-    else:
-        out_dir = args.out_dir
+        model = ConvTasNet(
+            sources=args.sources,
+            N=8,
+            L=1,
+            B=16,
+            H=32,
+            P=1,
+            X=16,
+            R=8,
+            audio_channels=2,
+            norm_type="gLN",
+            causal=False,
+            mask_nonlinear='relu',
+            sample_rate=16000,
+            segment_length=44100 * 2 * 4, #? May need to reconsider
+            frame_length=400,
+            frame_step=100,
+        )
+    
+    model.eval()  # 设置模型为评估模式
+    
+    # 设置输出目录
+    out_dir = local_out_dir if local_out_dir else args.out_dir
 
-    dset = get_dataset(args, model.sample_rate, model.chin)
+    # 获取数据集
+    dset = get_dataset(args, model.sample_rate, model.audio_channels)
     if dset is None:
         return
     loader = distrib.loader(dset, batch_size=1)
@@ -126,26 +158,70 @@ def enhance(args, model=None, local_out_dir=None):
         os.makedirs(out_dir, exist_ok=True)
     distrib.barrier()
 
+    # 使用多进程处理音频增强
     with ProcessPoolExecutor(args.num_workers) as pool:
         iterator = LogProgress(logger, loader, name="Generate enhanced files")
         pendings = []
         for data in iterator:
-            # Get batch data
+            # 获取批次数据
             noisy_signals, filenames = data
             noisy_signals = noisy_signals.to(args.device)
+
             if args.device == 'cpu' and args.num_workers > 1:
                 pendings.append(
                     pool.submit(_estimate_and_save,
                                 model, noisy_signals, filenames, out_dir, args))
             else:
-                # Forward
+                # 前向推理获取去噪结果
                 estimate = get_estimate(model, noisy_signals, args)
                 save_wavs(estimate, noisy_signals, filenames, out_dir, sr=model.sample_rate)
 
+        # 等待所有子进程完成
         if pendings:
             print('Waiting for pending jobs...')
             for pending in LogProgress(logger, pendings, updates=5, name="Generate enhanced files"):
                 pending.result()
+
+
+# def enhance(args, model=None, local_out_dir=None):
+#     # Load model
+#     if not model:
+#         model = pretrained.get_model(args).to(args.device)
+#     model.eval()
+#     if local_out_dir:
+#         out_dir = local_out_dir
+#     else:
+#         out_dir = args.out_dir
+
+#     dset = get_dataset(args, model.sample_rate, model.audio_channels)
+#     if dset is None:
+#         return
+#     loader = distrib.loader(dset, batch_size=1)
+
+#     if distrib.rank == 0:
+#         os.makedirs(out_dir, exist_ok=True)
+#     distrib.barrier()
+
+#     with ProcessPoolExecutor(args.num_workers) as pool:
+#         iterator = LogProgress(logger, loader, name="Generate enhanced files")
+#         pendings = []
+#         for data in iterator:
+#             # Get batch data
+#             noisy_signals, filenames = data
+#             noisy_signals = noisy_signals.to(args.device)
+#             if args.device == 'cpu' and args.num_workers > 1:
+#                 pendings.append(
+#                     pool.submit(_estimate_and_save,
+#                                 model, noisy_signals, filenames, out_dir, args))
+#             else:
+#                 # Forward
+#                 estimate = get_estimate(model, noisy_signals, args)
+#                 save_wavs(estimate, noisy_signals, filenames, out_dir, sr=model.sample_rate)
+
+#         if pendings:
+#             print('Waiting for pending jobs...')
+#             for pending in LogProgress(logger, pendings, updates=5, name="Generate enhanced files"):
+#                 pending.result()
 
 
 if __name__ == "__main__":

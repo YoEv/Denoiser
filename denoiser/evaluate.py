@@ -1,9 +1,3 @@
-# Copyright (c) Facebook, Inc. and its affiliates.
-# All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
-# author: adiyoss
 
 import argparse
 from concurrent.futures import ProcessPoolExecutor
@@ -14,11 +8,13 @@ import sys
 from pesq import pesq
 from pystoi import stoi
 import torch
+import numpy as np
 
 from .data import NoisyCleanSet
 from .enhance import add_flags, get_estimate
 from . import distrib, pretrained
 from .utils import bold, LogProgress
+from . import ConvTasNet
 
 logger = logging.getLogger(__name__)
 
@@ -33,7 +29,6 @@ parser.add_argument('--no_pesq', action="store_false", dest="pesq", default=True
 parser.add_argument('-v', '--verbose', action='store_const', const=logging.DEBUG,
                     default=logging.INFO, help="More loggging")
 
-
 def evaluate(args, model=None, data_loader=None):
     total_pesq = 0
     total_stoi = 0
@@ -41,9 +36,30 @@ def evaluate(args, model=None, data_loader=None):
     updates = 5
 
     # Load model
+    # if not model:
+    #     model = pretrained.get_model(args).to(args.device)
+    # model.eval()
     if not model:
-        model = pretrained.get_model(args).to(args.device)
-    model.eval()
+    # 直接实例化一个 ConvTasNet 模型，传入所需的参数
+        model = ConvTasNet(
+            sources=args.sources,
+            N=8,
+            L=1,
+            B=16,
+            H=32,
+            P=1,
+            X=16,
+            R=8,
+            audio_channels=2,
+            norm_type="gLN",
+            causal=False,
+            mask_nonlinear='relu',
+            sample_rate=16000,
+            segment_length=44100 * 2 * 4, #? May need to reconsider
+            frame_length=400,
+            frame_step=100,
+        ).to(args.device)
+
 
     # Load data
     if data_loader is None:
@@ -57,7 +73,6 @@ def evaluate(args, model=None, data_loader=None):
             for i, data in enumerate(iterator):
                 # Get batch data
                 noisy, clean = [x.to(args.device) for x in data]
-                # If device is CPU, we do parallel evaluation in each CPU worker.
                 if args.device == 'cpu':
                     pendings.append(
                         pool.submit(_estimate_and_run_metrics, clean, model, noisy, args))
@@ -82,8 +97,7 @@ def evaluate(args, model=None, data_loader=None):
 
 def _estimate_and_run_metrics(clean, model, noisy, args):
     estimate = get_estimate(model, noisy, args)
-    return _run_metrics(clean, estimate, args, sr=model.sample_rate)
-
+    return _run_metrics(clean, estimate, args, sr=16000)
 
 def _run_metrics(clean, estimate, args, sr):
     estimate = estimate.numpy()[:, 0]
@@ -94,7 +108,6 @@ def _run_metrics(clean, estimate, args, sr):
         pesq_i = 0
     stoi_i = get_stoi(clean, estimate, sr=sr)
     return pesq_i, stoi_i
-
 
 def get_pesq(ref_sig, out_sig, sr):
     """Calculate PESQ.
@@ -107,8 +120,7 @@ def get_pesq(ref_sig, out_sig, sr):
     pesq_val = 0
     for i in range(len(ref_sig)):
         pesq_val += pesq(sr, ref_sig[i], out_sig[i], 'wb')
-    return pesq_val
-
+    return pesq_val 
 
 def get_stoi(ref_sig, out_sig, sr):
     """Calculate STOI.
@@ -119,8 +131,28 @@ def get_stoi(ref_sig, out_sig, sr):
         STOI
     """
     stoi_val = 0
+    # for i in range(len(ref_sig)):
+    #     min_length = min(len(ref_sig[i]), len(out_sig[i]))
+    #     ref_sig[i] = ref_sig[i][:min_length]
+    #     out_sig[i] = out_sig[i][:min_length]
+    #     stoi_val += stoi(ref_sig[i], out_sig[i], sr, extended=False)
+    aligned_ref = []
+    aligned_out = []
+
     for i in range(len(ref_sig)):
-        stoi_val += stoi(ref_sig[i], out_sig[i], sr, extended=False)
+        max_length = max(len(ref_sig[i]), len(out_sig[i]))
+        
+        # 如果长度不足，则填充；如果长度超过，则裁剪
+        ref = np.pad(ref_sig[i], (0, max_length - len(ref_sig[i])), mode='constant') if len(ref_sig[i]) < max_length else ref_sig[i][:max_length]
+        out = np.pad(out_sig[i], (0, max_length - len(out_sig[i])), mode='constant') if len(out_sig[i]) < max_length else out_sig[i][:max_length]
+
+        aligned_ref.append(ref)
+        aligned_out.append(out)
+        # print(f"Aligned signal {i}: ref length={len(ref)}, out length={len(out)}")
+
+    # 计算 STOI
+    for ref, out in zip(aligned_ref, aligned_out):
+        stoi_val += stoi(ref, out, sr, extended=False)
     return stoi_val
 
 

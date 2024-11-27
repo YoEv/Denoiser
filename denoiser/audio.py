@@ -11,49 +11,52 @@ from pathlib import Path
 import math
 import os
 import sys
+import re
 
 import torch
 import torchaudio
 from torch.nn import functional as F
 
-from .dsp import convert_audio
+from .dsp import convert_audio #if needed to form json file, # .dsp
 
-Info = namedtuple("Info", ["length", "sample_rate", "channels"])
+Info = namedtuple("Info", ["length", "sample_rate", "channels"]) 
 
-
-def get_info(path):
+def get_info(path): 
     info = torchaudio.info(path)
-    if hasattr(info, 'num_frames') and info.num_frames == 0:
+    if hasattr(info, 'num_frames') and info.num_frames == 0: #check if info has 'num_frames'
         info.num_frames = -1
     if hasattr(info, 'num_frames'):
-        # new version of torchaudio
         return Info(info.num_frames, info.sample_rate, info.num_channels)
     else:
         siginfo = info[0]
-        return Info(siginfo.length // siginfo.channels, siginfo.rate, siginfo.channels)
+        return Info(siginfo.length // siginfo.channels, siginfo.rate, siginfo.channels) ##
 
+def natural_key(string):
+    return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', string)]
 
 def find_audio_files(path, exts=[".wav"], progress=True):
     audio_files = []
-    for root, folders, files in os.walk(path, followlinks=True):
+    for root, _, files in os.walk(path, followlinks=True):
         for file in files:
             file = Path(root) / file
             if file.suffix.lower() in exts:
                 audio_files.append(str(file.resolve()))
+
+    audio_files.sort(key=natural_key)
+
     meta = []
     for idx, file in enumerate(audio_files):
         info = get_info(file)
         meta.append((file, info.length))
         if progress:
             print(format((1 + idx) / len(audio_files), " 3.1%"), end='\r', file=sys.stderr)
-    meta.sort()
     return meta
 
 
 class Audioset:
     def __init__(self, files=None, length=None, stride=None,
-                 pad=True, with_path=False, sample_rate=None,
-                 channels=None, convert=False):
+                 pad=True, with_path=False, sample_rate=16000,
+                 channels=None, convert=True):
         """
         files should be a list [(file, length)]
         """
@@ -65,7 +68,7 @@ class Audioset:
         self.sample_rate = sample_rate
         self.channels = channels
         self.convert = convert
-        for file, file_length in self.files:
+        for _, file_length in self.files:
             if length is None:
                 examples = 1
             elif file_length < length:
@@ -112,12 +115,18 @@ class Audioset:
                     return out
             except Exception as e:
                 print(f"Error processing file {file}: {e}")
-                return torch.zeros((1,1)) ####### adjust shape
-
+                return torch.zeros((1,1)) #adjust shape
 
 
 if __name__ == "__main__":
-    meta = []
-    for path in sys.argv[1:]:
-        meta += find_audio_files(path)
-    json.dump(meta, sys.stdout, indent=4)
+    
+    paths = [
+        ("/Volumes/Castile/HackerProj/Denoiser/train/clean", "/Volumes/Castile/HackerProj/Denoiser/egs/debug/tr/clean.json"),
+        ("/Volumes/Castile/HackerProj/Denoiser/train/noisy", "/Volumes/Castile/HackerProj/Denoiser/egs/debug/tr/noisy.json")
+    ]
+    
+    for audio_path, output_file in paths:
+        meta = find_audio_files(audio_path)
+        
+        with open(output_file, "w") as f:
+            json.dump(meta, f, indent=4)

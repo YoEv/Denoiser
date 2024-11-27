@@ -67,7 +67,7 @@ class Solver(object):
         self.args = args
         self.mrstftloss = MultiResolutionSTFTLoss(factor_sc=args.stft_sc_factor,
                                                   factor_mag=args.stft_mag_factor).to(self.device)
-        self._reset()
+        # self._reset()
 
     def _serialize(self):
         package = {}
@@ -96,29 +96,12 @@ class Solver(object):
         keep_history = True
         # Reset
         if self.checkpoint and self.checkpoint_file.exists() and not self.restart:
-            load_from = self.checkpoint_file
+            load_from = self.checkpoint_file #changed the checkpoint, but haven't sign the path
         elif self.continue_from:
             load_from = self.continue_from
             load_best = self.args.continue_best
             keep_history = False
 
-        if load_from:
-            logger.info(f'Loading checkpoint model: {load_from}')
-            package = torch.load(load_from, 'cpu')
-            if load_best:
-                self.model.load_state_dict(package['best_state'])
-            else:
-                self.model.load_state_dict(package['model']['state'])
-            if 'optimizer' in package and not load_best:
-                self.optimizer.load_state_dict(package['optimizer'])
-            if keep_history:
-                self.history = package['history']
-            self.best_state = package['best_state']
-        continue_pretrained = self.args.continue_pretrained
-        if continue_pretrained:
-            logger.info("Fine tuning from pre-trained model %s", continue_pretrained)
-            model = getattr(pretrained, self.args.continue_pretrained)()
-            self.model.load_state_dict(model.state_dict())
 
     def train(self):
         if self.args.save_again:
@@ -137,7 +120,7 @@ class Solver(object):
             start = time.time()
             logger.info('-' * 70)
             logger.info("Training...")
-            train_loss = self._run_one_epoch(epoch)  ##########################
+            train_loss = self._run_one_epoch(epoch)  
             logger.info(
                 bold(f'Train Summary | End of Epoch {epoch + 1} | '
                      f'Time {time.time() - start:.2f}s | Train Loss {train_loss:.5f}'))
@@ -209,21 +192,23 @@ class Solver(object):
                 noisy = noise + clean
             #clean_shape = clean.shape
             #desired_size = (20, clean.shape[1], clean.shape[2])
-            print("Clean shape_original:", clean.shape)
-            clean = clean[:20, ...]
-            print("Adjusted clean shape:", clean.shape)
+            #print("Clean shape_original:", clean.shape)
+            clean = clean[:1, ...]
+            #print("Adjusted clean shape:", clean.shape)
             clean_shape = clean.shape
-            estimate = self.dmodel(noisy) ########################
+            estimate = self.dmodel(noisy) 
 
             if estimate is not None:
-                print("Estimate shape:", estimate.shape)
+                #print("Estimate shape:", estimate.shape)
+                if estimate.shape[0] != clean.shape[0]:
+                    min_shape = min(estimate.shape[0], clean.shape[0])
+                    clean = clean[:min_shape]
+                    estimate = estimate[:min_shape]
+
                 if estimate.shape[-1] > clean.shape[-1]:
-                    estimate = estimate[..., :clean.shape[-1]]
+                    estimate = estimate[:, :, :clean.shape[-1]]
                 if clean.shape[-1] > estimate.shape[-1]:
-                    clean = clean[..., :estimate.shape[-1]]
-                estimate = estimate[:, :, :clean.shape[-1]]###########
-                #estimate = estimate.reshape(clean_shape)
-                print("AfterEstimate shape:", estimate.shape)
+                    clean = clean[:, :, :estimate.shape[-1]]
 
             # apply a loss function after each layer
             with torch.autograd.set_detect_anomaly(True):
@@ -243,7 +228,7 @@ class Solver(object):
                 # optimize model in training mode
                 if not cross_valid:
                     self.optimizer.zero_grad()
-                    loss.backward() ###############################
+                    loss.backward() 
                     self.optimizer.step()
 
             total_loss += loss.item()
