@@ -6,4 +6,6 @@ pystoi
 git+https://github.com/ludlows/python-pesq#egg=pesq
 six
 sounddevice
+torch
+pesq
 
