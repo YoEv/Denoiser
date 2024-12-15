@@ -7,7 +7,6 @@ This is a time-domian denoiser project based on modified Conv-TasNet architectur
 This project get the reference from Demucs project and Conv-TasNet Architechture. 
 Two papers sourses:
 [Real Time Speech Enhancement in the Waveform Domain](https://arxiv.org/abs/2006.12847)
-
 [Conv-TasNet: Surpassing Ideal Time-Frequency Magnitude Masking for Speech Separation](https://arxiv.org/abs/1809.07454)
 
 The proposed model is based on an encoder-separator-decoder architecture with temporal convolutional blocks. It is optimized on time domains, using l1 loss functions.
@@ -161,7 +160,19 @@ python -m denoiser.enhance --model_path=<path to the model> --noisy_dir=<path to
 Notice, you can either provide `noisy_dir` or `noisy_json` for the test data.
 Note that the path given to `--model_path` should be obtained from one of the `best.th` file, not `checkpoint.th`.
 
-### 5. Results
+### 5. Training Results under the Large Model
 
+The following table summarizes the training results for different noisy types:
 
+| **Noisy Type**   | **Train** | **Valid** | **Best**  | **PESQ**  | **STOI**  |
+|-------------------|-----------|-----------|-----------|-----------|-----------|
+| **Noisy Type 1**  | 0.72530   | 0.08239   | 0.08239   | 1.08654   | 0.65980   |
+| **Noisy Type 2**  | 0.72435   | 0.13229   | 0.13229   | 1.05999   | 0.49327   |
+| **Noisy Type 3**  | 0.69764   | 0.09691   | 0.09691   | 1.10024   | 0.57935   |
+| **Noisy Type 4**  | 0.72255   | 0.10658   | 0.10658   | 1.10877   | 0.52111   |
+| **Noisy Type 5**  | 0.71206   | 0.08236   | 0.08236   | 1.11966   | 0.65962   |
+| **Ground Truth**  | 0.12564   | 0.02535   | 0.02486   | 1.28891   | 0.58838   |
 
+### Key Metrics
+- **PESQ**: Perceptual Evaluation of Speech Quality  
+- **STOI**: Short-Time Objective Intelligibility  
